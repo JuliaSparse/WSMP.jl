@@ -17,6 +17,9 @@ ENV["MALLOC_MMAP_MAX_"] = 0
 ENV["WSMPLICPATH"] = Pkg.dir("WSMP","deps","usr","lib")
 blas_set_num_threads(1)
 
+export Wssmp,
+    wssmp
+
 include("wssmp.jl")
 
 end # module

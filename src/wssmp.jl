@@ -71,7 +71,7 @@ function wssmp(a::Wssmp, b::StridedVecOrMat{Cdouble}, task::Integer=4)
           (Ptr{Cint},Ptr{Cint},Ptr{Cint},Ptr{Cdouble},Ptr{Cdouble},Ptr{Cint},Ptr{Cint},Ptr{Cdouble},
            Ptr{Cint},Ptr{Cint},Ptr{Void},Ptr{Cint},Ptr{Cint},Ptr{Cint}, Ptr{Cdouble}),
           &(length(a.ia)-1),a.ia,a.ja,a.avals,a.diag,a.perm,a.invp,
-          b,&stride(b,2),&size(b,1),C_NULL,&0,a.mrp,a.iparm,a.dparm)
+          b,&stride(b,2),&size(b,2),C_NULL,&0,a.mrp,a.iparm,a.dparm)
     if a.iparm[64] != 0
         error("error code $(a.iparm[64]) from ccall to wssmp_ with a.iparm[3] == $(a.iparm[3])")
     end
